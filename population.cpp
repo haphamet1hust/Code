@@ -4,8 +4,10 @@ const int number = 51;
 typedef struct population {
     int year;
     int people_number;
-} population;
-population p[number];
+} population; //tạo struct quản lí dân số 
+population p[number]; //tạo mảng chứa các đối tượng kiểu struct
+
+/*Hàm đưa dữ liệu đầu vào*/
 void input() {
     for (int i = 0;i < number;i++) {
         cout<<"Nhap thong tin nam ";
@@ -14,12 +16,16 @@ void input() {
         cin>>p[i].people_number;
     }
 }
+
+/*Hàm in dữ liệu đầu ra từ đầu vào*/
 void output() {
     for (int i = 0;i < number;i++) {
         cout<<p[i].year<<' ';
         cout<<p[i].people_number<<endl;
     }
 }
+
+/*Hàm in ra năm có số người sinh ra nhiều nhất*/
 void max_people() {
     int max_index = 0;
     int max = p[0].people_number;
@@ -31,6 +37,8 @@ void max_people() {
     }
     cout<<p[max_index].year<<endl;
 }
+
+/*Hàm in năm có số người sinh ra ít nhất*/
 void min_people() {
     int min_index = 0;
     int min = p[0].people_number;
@@ -42,6 +50,8 @@ void min_people() {
     }
     cout<<p[min_index].year<<endl;
 }
+
+/*Hàm đếm tổng số năm có cùng số người sinh ra*/
 void same_numberpeople(int n) {
     int count = 0;
     for(int i = 0;i < number;i++) {
@@ -49,6 +59,8 @@ void same_numberpeople(int n) {
     }
     cout<<count;
 }
+
+/*Hàm in ra số năm có cùng số người sinh ra*/
 void numberyear_samenumber() {
     for(int i = 0;i < number;i++) {
         same_numberpeople(p[i].people_number);
