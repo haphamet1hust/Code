@@ -56,33 +56,50 @@ int size_list(word_list *list) {
     }
     return size_list;
 }
+void same_word(word_list *list) {
+    if (list -> first_word == NULL) return;
+    for(word_node *temp = list -> first_word;temp -> next != NULL;temp = temp -> next) {
+        if (temp -> next -> word == temp -> word) {
+            word_node *delete_word = temp;
+            delete delete_word; 
+        }
+    }
+}
+void output(word_list *list) {
+     word_node *temp = list -> first_word;
+     while(temp != NULL) {
+        cout<<temp -> word<<' ';
+        temp = temp -> next;
+     }
+}
 int main() {
     word_list *list = new word_list;
     list -> first_word = NULL;
-    add_word(list,"I");
-    add_word(list,"love");
-    add_word(list,"love");
-    add_word(list,"love");
-    add_word(list,"love");
-    add_word(list,"love");
-    add_word(list,"love");
-    add_word(list,"you");
-    add_word(list,"so");
-    add_word(list,"much");
-    cout<<"My sentences is: ";
+    add_word(list,"que");
+    add_word(list,"em");
+    add_word(list,"co");
+    add_word(list,"canh");
+    add_word(list,"dong");
+    add_word(list,"xanh");
+    add_word(list,"xanh");
+    add_word(list,"thang");
+    add_word(list,"canh");
+    add_word(list,"co");
+    add_word(list,"bay");
+    cout<<"Cau nhap vao la: ";
     word_node *temp = list -> first_word;
-    while(temp != NULL) {
-        cout<<temp -> word<<' ';
-        temp = temp -> next;
-    }
+    output(list);
     cout<<endl;
-    cout<<"The word is duplicated max: ";
+    cout<<"Tu xuat hien nhieu nhat trong cau la:  ";
     count_word(list);
     word_node *maximum_word = max_word(list);
     output_check(list,maximum_word);
-    cout<<"Size of my sentences is: ";
+    cout<<"So tu vung trong cau la:  ";
     int size = size_list(list);
-    cout<<size;
+    cout<<size<<endl;
+    same_word(list);
+   // cout<<"Cau sau khi loai bo tu la: ";
+    output(list);
 }
 
 
